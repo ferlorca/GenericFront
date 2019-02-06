@@ -1,0 +1,102 @@
+
+<form novalidate class="col-6 mx-auto needs-validation"
+      [formGroup]="myform" (ngSubmit)="onSubmit()">
+
+      <div class="row">
+    <div class="form-group col-6">
+      <label>Nombre</label>
+      <input type="text"
+             class="form-control"
+             formControlName="name"
+             [ngClass]="{
+              'is-invalid': name.invalid && (name.dirty || name.touched),
+              'is-valid': name.valid && (name.dirty || name.touched)
+              }"
+             required>
+      <div class="form-control-feedback text-danger"
+           *ngIf="name.errors && (name.dirty || name.touched)">
+        <p *ngIf="name.errors.required">El nombre es requerido</p>
+      </div>
+    </div>
+
+    <div class="form-group col-6">
+      <label>Apellido</label>
+      <input type="text"
+             class="form-control"
+             formControlName="surname"
+             
+         [ngClass]="{
+          'is-invalid': surname.invalid && (surname.dirty || surname.touched),
+          'is-valid': surname.valid && (surname.dirty || surname.touched)
+        }"
+             required>
+      <div class="form-control-feedback text-danger"
+           *ngIf="surname.errors && (surname.dirty || surname.touched)">
+        <p *ngIf="surname.errors.required">El apellido es requerido</p>
+      </div>
+    </div>
+  </div>
+<div class="row">
+    <div class="form-group col-6">
+      <label>Usuario</label>
+      <input type="text"
+             class="form-control"
+             formControlName="username"
+             
+         [ngClass]="{
+          'is-invalid': username.invalid && (username.dirty || username.touched),
+          'is-valid': username.valid && (username.dirty || username.touched)
+        }"
+             required>
+      <div class="form-control-feedback text-danger"
+           *ngIf="username.errors && (username.dirty || username.touched)">
+        <p *ngIf="username.errors.required">El usuario es requerido</p>
+      </div>
+    </div>
+  
+
+
+  <div class="form-group col-6">
+    <label>Email</label>
+    <input type="email"
+           class="form-control"
+           formControlName="email"
+       [ngClass]="{
+        'is-invalid': email.invalid && (email.dirty || email.touched),
+        'is-valid': email.valid && (email.dirty || email.touched)
+   }"
+           required>
+    <div class="form-control-feedback text-danger"
+         *ngIf="email.errors && (email.dirty || email.touched)">
+      <p *ngIf="email.errors.required">Email es requerido</p>
+      <p *ngIf="email.errors.pattern">La direccion de email debe contener al menos un "@"</p>    
+    </div>
+
+  </div>
+</div>
+<div class="row">
+  <div class="form-group col-12">
+    <label>Contraseña</label>
+    <input type="password"
+           class="form-control"
+           formControlName="password"
+           
+       [ngClass]="{
+        'is-invalid': password.invalid && (password.dirty || password.touched),
+        'is-valid': password.valid && (password.dirty || password.touched)
+   }"
+           required>
+    <div class="form-control-feedback text-danger"
+         *ngIf="password.errors && (password.dirty || password.touched)">
+      <p *ngIf="password.errors.required">Contraseña</p>
+      <p *ngIf="password.errors.minlength">La contraseña debe contener como minimo 6 digitos, se necesitan {{password.errors.minlength.requiredLength - password.errors.minlength.actualLength}} caracteres </p>
+    </div>
+  </div>
+</div>
+  <div class="text-center">
+    <button type="submit" class="btn btn-primary">Nuevo usuario</button>
+    <button type="button" class="ml-2 btn btn-success" (click)="getUsers()">Ver usuarios</button>
+  </div>
+
+  <!-- <pre>{{myform.value | json}}</pre> -->
+</form>

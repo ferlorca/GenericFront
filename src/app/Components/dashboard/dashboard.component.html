@@ -1,0 +1,35 @@
+<H2>
+    ABM DE USUARIOS
+</H2>
+<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <h4 class="col-6 align-self-start">Featured</h4>
+            <div class="md-form col-6 align-self-end">
+                <input class="form-control" type="search" [formControl]="searchField"> 
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Users</h5>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Username</th>
+                    <th scope="col">Email</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let user of users">
+                <tr>
+                    <td>{{user.name}}</td>
+                    <td>{{user.username}}</td>
+                    <td>{{user.email}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <a href="#" class="btn btn-primary mt-3 align-self-center" (click)="goBack()">Go back</a>
+    </div>
+</div>

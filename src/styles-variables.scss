@@ -1,0 +1,23 @@
+// COLORS
+
+
+$primary:       #0F8B8D;
+$secondary:     #C83200;
+$success:       #3d8532;
+$info:          rgb(69, 75, 165);
+$warning:       #efb810;
+$danger:        #d71e22;
+$light:         #DAD2D8;
+$dark:          #143642;
+$white: #eee;
+
+//GRID SYSTEM
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+);
+
+

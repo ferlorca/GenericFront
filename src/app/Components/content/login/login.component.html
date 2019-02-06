@@ -1,0 +1,48 @@
+<div class="col-6 mx-auto mt-4">
+  <form class="form-signin" novalidate [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <!-- <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72"> -->
+    <h1 class="h3 mb-3 font-weight-normal">Login</h1>
+    <div class="form-group">
+      <label for="inputEmail" class="sr-only">Email</label>
+      <input formControlName="email" type="email" id="inputEmail" class="form-control" placeholder="Direccion de email" required=""
+        autofocus=""
+        [ngClass]="{
+          'is-invalid': email.invalid && (email.dirty || email.touched),
+          'is-valid': email.valid && (email.dirty || email.touched)
+        }"
+        >
+      <div class="form-control-feedback text-danger" *ngIf="email.errors && (email.dirty || email.touched)">
+        <p *ngIf="email.errors.required">email es requerido</p>
+        <p *ngIf="email.errors.pattern">La direccion de email debe contener al menos un '@' como caracter</p>    
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputPassword" class="sr-only mt-3">Password</label>
+      <input formControlName="password" 
+      type="password" 
+      id="inputPassword" 
+      class="form-control" 
+      placeholder="Contraseña"
+      [ngClass]="{
+        'is-invalid': password.invalid && (password.dirty || password.touched),
+        'is-valid': password.valid && (password.dirty || password.touched)
+    }"
+      required="">
+      <div class="form-control-feedback text-danger" *ngIf="password.errors && (password.dirty || password.touched)">
+        <p *ngIf="password.errors.required">contraseña es requerida</p>
+        <p *ngIf="password.errors.minlength">La contraseña debe contener al menos 6 caracteres, se necesitan al menos {{password.errors.minlength.requiredLength - password.errors.minlength.actualLength}} caracteres </p>
+      </div>
+    </div>
+    <div class="form-group">
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      <a class="float-right" href="#" [routerLink]="['/signup']">
+        o registrate
+      </a>
+    </div>
+
+    <p class="mt-5 mb-3 text-muted">© 2017-2018</p>
+  </form>
+
+  <!-- Debug porpuse -->
+  <!-- <pre>{{loginForm.value | json}}</pre> -->
+</div>
