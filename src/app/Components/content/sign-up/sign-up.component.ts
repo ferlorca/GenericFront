@@ -5,7 +5,7 @@ import {
   FormControl,
   Validators,
 } from '@angular/forms';
-import {UserService} from "../../../Services/user.service"
+import {UserService} from "../users/user-service/user.service"
 
 @Component({
   selector: 'app-sign-up',
@@ -22,11 +22,15 @@ export class SignUpComponent implements OnInit {
   username:FormControl;
   
   constructor(private userService: UserService) {    
+   
+    this.createFormControls();
+    this.createForm();
   }
 
   ngOnInit() {
-    this.createFormControls();
-    this.createForm();
+    // this.createForm();
+    // this.createFormControls();
+    
   }
 
   createFormControls() {
@@ -75,15 +79,15 @@ export class SignUpComponent implements OnInit {
     }
   }
 
-  getUsers(){   
-      this.userService.getUsers().subscribe(res => {
-        for(let user of res){
-          console.log(user);
-        }
-      },    
-      error=>{console.error(error)
-      })
-    ;       
-  }
+  // getUsers(){   
+  //     this.userService.getUsers().subscribe(res => {
+  //       for(let user of res){
+  //         console.log(user);
+  //       }
+  //     },    
+  //     error=>{console.error(error)
+  //     })
+  //   ;       
+  // }
 
 }

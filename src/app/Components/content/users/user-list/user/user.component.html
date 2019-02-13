@@ -1,0 +1,14 @@
+<!-- <tr> -->
+    <td>{{user.id}}</td>
+    <td>{{user.name}}</td>
+    <td>{{user.username}}</td>
+    <td>{{user.email}}</td>
+    <td>
+        <div class="row">
+            <div class="col">
+                    <a href="" [routerLink]="['edit',user.id]"><i class="material-icons">edit</i></a>
+                    <a href="" (click)="delete($event)"><i class="material-icons">delete</i></a>
+            </div>                           
+        </div>                    
+    </td>
+<!-- </tr> -->

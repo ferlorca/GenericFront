@@ -4,7 +4,7 @@
 
       <div class="row">
     <div class="form-group col-6">
-      <label>Nombre</label>
+      <label>Name</label>
       <input type="text"
              class="form-control"
              formControlName="name"
@@ -15,12 +15,12 @@
              required>
       <div class="form-control-feedback text-danger"
            *ngIf="name.errors && (name.dirty || name.touched)">
-        <p *ngIf="name.errors.required">El nombre es requerido</p>
+        <p *ngIf="name.errors.required">Name is required</p>
       </div>
     </div>
 
     <div class="form-group col-6">
-      <label>Apellido</label>
+      <label>Last Name</label>
       <input type="text"
              class="form-control"
              formControlName="surname"
@@ -32,13 +32,13 @@
              required>
       <div class="form-control-feedback text-danger"
            *ngIf="surname.errors && (surname.dirty || surname.touched)">
-        <p *ngIf="surname.errors.required">El apellido es requerido</p>
+        <p *ngIf="surname.errors.required">Last Name is required</p>
       </div>
     </div>
   </div>
 <div class="row">
     <div class="form-group col-6">
-      <label>Usuario</label>
+      <label>Username</label>
       <input type="text"
              class="form-control"
              formControlName="username"
@@ -50,7 +50,7 @@
              required>
       <div class="form-control-feedback text-danger"
            *ngIf="username.errors && (username.dirty || username.touched)">
-        <p *ngIf="username.errors.required">El usuario es requerido</p>
+        <p *ngIf="username.errors.required">Username is required</p>
       </div>
     </div>
   
@@ -68,15 +68,15 @@
            required>
     <div class="form-control-feedback text-danger"
          *ngIf="email.errors && (email.dirty || email.touched)">
-      <p *ngIf="email.errors.required">Email es requerido</p>
-      <p *ngIf="email.errors.pattern">La direccion de email debe contener al menos un "@"</p>    
+      <p *ngIf="email.errors.required">Email is required</p>
+      <p *ngIf="email.errors.pattern">The email direccion must be contain at lest an "@"</p>    
     </div>
 
   </div>
 </div>
 <div class="row">
   <div class="form-group col-12">
-    <label>Contraseña</label>
+    <label>Password</label>
     <input type="password"
            class="form-control"
            formControlName="password"
@@ -88,14 +88,14 @@
            required>
     <div class="form-control-feedback text-danger"
          *ngIf="password.errors && (password.dirty || password.touched)">
-      <p *ngIf="password.errors.required">Contraseña</p>
-      <p *ngIf="password.errors.minlength">La contraseña debe contener como minimo 6 digitos, se necesitan {{password.errors.minlength.requiredLength - password.errors.minlength.actualLength}} caracteres </p>
+      <p *ngIf="password.errors.required">Password is required</p>
+      <p *ngIf="password.errors.minlength">The password must be contain at least 6 digits, It needs {{password.errors.minlength.requiredLength - password.errors.minlength.actualLength}} characters left </p>
     </div>
   </div>
 </div>
   <div class="text-center">
-    <button type="submit" class="btn btn-primary">Nuevo usuario</button>
-    <button type="button" class="ml-2 btn btn-success" (click)="getUsers()">Ver usuarios</button>
+    <button type="submit" class="btn btn-primary">New user</button>
+    <button type="button" [routerLink]="['user']" class="ml-2 btn btn-success">See users</button>
   </div>
 
   <!-- <pre>{{myform.value | json}}</pre> -->

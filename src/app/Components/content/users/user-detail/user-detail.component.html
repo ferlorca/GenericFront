@@ -1,0 +1,58 @@
+<h2 *ngIf="user != null">Edit for user with id {{user.id}}</h2>
+<h2 *ngIf="user == null">New user</h2>
+
+<form class="col-6 mx-auto needs-validation" [formGroup]="myform" (ngSubmit)="onSubmit()">
+  <div class="row">
+    <div class="form-group col-12">
+      <label>Name</label>
+      <input type="text" class="form-control" formControlName="name" [ngClass]="{
+        'is-invalid': name.invalid && (name.dirty || name.touched),
+        'is-valid': name.valid && (name.dirty || name.touched)
+        }"
+        required>
+      <div class="form-control-feedback text-danger" *ngIf="name.errors && (name.dirty || name.touched)">
+        <p *ngIf="name.errors.required">Name is required</p>
+      </div>
+    </div>
+  </div>
+    <div class="row">
+    <div class="form-group col-12">
+        <label>Email</label>
+        <input type="email" class="form-control" formControlName="email" [ngClass]="{
+    'is-invalid': email.invalid && (email.dirty || email.touched),
+    'is-valid': email.valid && (email.dirty || email.touched)
+  }" 
+          required>
+        <div class="form-control-feedback text-danger" *ngIf="email.errors && (email.dirty || email.touched)">
+          <p *ngIf="email.errors.required">Email is required</p>
+          <p *ngIf="email.errors.pattern">The email direccion must be contain at lest an "@"</p>
+        </div>
+  
+      </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-12">
+      <label>Username</label>
+      <input type="text" class="form-control" formControlName="username" [ngClass]="{
+    'is-invalid': username.invalid && (username.dirty || username.touched),
+    'is-valid': username.valid && (username.dirty || username.touched)
+  }"
+        required>
+      <div class="form-control-feedback text-danger" *ngIf="username.errors && (username.dirty || username.touched)">
+        <p *ngIf="username.errors.required">Username is required</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center">
+    <button type="submit" *ngIf="user == null; else updatebtn" class="btn btn-primary">New user</button>
+    
+    <ng-template #updatebtn>
+      <button type="submit" class="btn btn-primary">Update</button>
+    </ng-template>
+
+    <button href="#" class="btn ml-2 align-self-center" (click)="goBack()">Go back</button>
+  </div>
+
+</form>

@@ -56,7 +56,7 @@ export class LoginComponent implements OnInit {
       this.auth.userAuthentication(this.loginForm.getRawValue())
       .subscribe((data)=>{
         localStorage.setItem('userToken',data.token);
-        let user = new User(data.data.name,data.data.surname,data.data.email,data.data.username);
+        let user = new User(null,data.data.name,data.data.email,data.data.username);
         localStorage.setItem("user",JSON.stringify(user));
         this.auth.isLogIn(true);
         this.router.navigate(['/home']);

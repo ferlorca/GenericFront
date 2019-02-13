@@ -3,7 +3,9 @@ import { GeoLocation } from "./GeoLocation";
 
 export class User {    
         
-  constructor(public name: string=null,
+  constructor(
+    public id: string =null,
+    public name: string=null,
     public email: string=null,
     public username: string=null,
     public address: Address=null                  
@@ -23,6 +25,7 @@ export class User {
         auxgeo,
       );
       this.name=json.name;
+      this.id=json.id;
       this.email=json.email;
       this.username=json.username;
       this.address=auxadress;
